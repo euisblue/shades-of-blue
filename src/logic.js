@@ -8,16 +8,17 @@
     request.responseType = 'json';
     request.send();
     request.onload = function () {
-        const blue = request.response;
-        populateBlue(blue);
+        var blue = request.response;
+        console.log(blue);
+        // populateBlue(blue);
     }
 
     function populateBlue(blue) {
-        blue.array.forEach(element => {
-            let div = document.createElement('div');
-            div.textContent = element;
-            container.append(div);
-        });
+        // blue.forEach(element => {
+            // let div = document.createElement('div');
+            // div.textContent = element["name"];
+            // container.append(div);
+        // });
 
     }
 })(window);
