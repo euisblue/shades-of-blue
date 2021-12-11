@@ -1,10 +1,8 @@
 (function () {
-    const container = document.querySelector('div.container');
     const containerWrapper = document.querySelector('div.container > .wrapper');
     const headerTitle = document.querySelector('.header');
     let req = new XMLHttpRequest();
     var blue;
-    hexLists = null;
 
     req.onreadystatechange = () => {
       if (req.readyState == XMLHttpRequest.DONE) {
@@ -22,7 +20,7 @@
     }
     
     function populate(blue) {
-        hexLists = Object.values(blue).sort();
+        let hexLists = Object.values(blue).sort();
         for(let i = 0; i<hexLists.length; ++i) {
             let div = document.createElement('div');
             let p = document.createElement('p');
