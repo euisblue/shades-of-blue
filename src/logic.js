@@ -46,6 +46,14 @@
                     p2.textContent = hexLists[i];
                 },1000);
             }
+            div.ontouchstart = () => {
+                copyColor(hexLists[i]);
+                p2.textContent = "Copied";
+                headerTitle.style.color = hexLists[i];
+                setTimeout(() => {
+                    p2.textContent = hexLists[i];
+                },1000);
+            }
         }
     }
 
