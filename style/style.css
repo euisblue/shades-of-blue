@@ -13,7 +13,6 @@
     background-color: white;
 }
 .container {
-    min-width: 720px;
     width: 1000px;
     margin: 4em auto;
     margin-top: 8em;
@@ -81,8 +80,11 @@ div.colorpad > span {
 }
 
 @media only screen and (max-width:1000px) {
+    .container {
+        width: 700px;
+    }
     .colorpad {
-        width: 300px;
+        width: 280px;
         margin: 10px auto;
     }
 
@@ -91,24 +93,16 @@ div.colorpad > span {
     }
 }
 
-@media only screen and (max-width:530px) {
+@media only screen and (max-width:535px) {
+    .header {
+        font-size: 2em;
+    }
+    .container {
+        width: 270px;
+    }
     .colorpad {
         width: 430px;
         margin: 18px auto;
-    }
-}
-
-@media only screen and (max-width: 300px) {
-    .container {
-        min-width: 270px;
-    }
-    .colorpad {
-        width: 640px;
-        height: 110px;
-        margin: 25px auto;
-    }
-    div.colorpad > p {
-        font-size: 24px;
     }
 }
 
