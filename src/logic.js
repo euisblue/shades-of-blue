@@ -4,6 +4,7 @@
     const headerTitle = document.querySelector('.header');
     let req = new XMLHttpRequest();
     var blue;
+    hexLists = null;
 
     req.onreadystatechange = () => {
       if (req.readyState == XMLHttpRequest.DONE) {
@@ -38,22 +39,14 @@
             div.append(p2);
             containerWrapper.append(div);
 
-            div.onclick = () => {
+            div.addEventListener('click', () => {
                 copyColor(hexLists[i]);
                 p2.textContent = "Copied";
                 headerTitle.style.color = hexLists[i];
                 setTimeout(() => {
                     p2.textContent = hexLists[i];
                 },1000);
-            }
-            div.ontouchstart = () => {
-                copyColor(hexLists[i]);
-                p2.textContent = "Copied";
-                headerTitle.style.color = hexLists[i];
-                setTimeout(() => {
-                    p2.textContent = hexLists[i];
-                },1000);
-            }
+            });
         }
     }
 
