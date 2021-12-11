@@ -7,16 +7,16 @@
     letter-spacing: 4px;
     font-family: 'Montagu Slab', serif;
     font-size: 55px;
-    padding: 1em 0.5em;
+    padding: 0.5em 0.5em;
     transition: color 0.5s;
     z-index: 17;
     background-color: white;
 }
 .container {
     min-width: 720px;
-    width: 70%;
+    width: 1000px;
     margin: 4em auto;
-    margin-top: 10em;
+    margin-top: 8em;
 }
 
 .wrapper {
@@ -78,6 +78,38 @@ div.colorpad > p:last-child:hover {
 
 div.colorpad > span {
     display: none;
+}
+
+@media only screen and (max-width:1000px) {
+    .colorpad {
+        width: 300px;
+        margin: 10px auto;
+    }
+
+    div.colorpad > p {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width:530px) {
+    .colorpad {
+        width: 430px;
+        margin: 18px auto;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .container {
+        min-width: 270px;
+    }
+    .colorpad {
+        width: 640px;
+        height: 110px;
+        margin: 25px auto;
+    }
+    div.colorpad > p {
+        font-size: 24px;
+    }
 }
 
 @keyframes move {
