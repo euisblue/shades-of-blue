@@ -1,7 +1,7 @@
 (function () {
     const container = document.querySelector('div.container');
     const containerWrapper = document.querySelector('div.container > .wrapper');
-
+    const headerTitle = document.querySelector('.header');
     let req = new XMLHttpRequest();
     var blue;
 
@@ -16,30 +16,34 @@
     req.setRequestHeader("secret-key", "$2b$10$qWldbeLTOtl7KSOhqohB/OhZ3SeyKG4H4khqWAgaerXGKB7TqJIny");
     req.send();
 
+    function getKeyByValue(object, value) {
+        return Object.keys(object).find(key => object[key] === value);
+    }
+    
     function populate(blue) {
-        colorNames = Object.keys(blue);
-        for(let i = 0; i<colorNames.length; ++i) {
+        hexLists = Object.values(blue).sort();
+        for(let i = 0; i<hexLists.length; ++i) {
             let div = document.createElement('div');
             let p = document.createElement('p');
             let p2 = document.createElement('p');
-            let hex = blue[colorNames[i]];
+            let colorName = getKeyByValue(blue, hexLists[i]);
 
-            
-            p2.textContent = hex;
-            p.textContent = colorNames[i];
+            p2.textContent = hexLists[i];
+            p.textContent = colorName;
 
             div.classList.add("colorpad");
-            div.style.backgroundColor = hex;
+            div.style.backgroundColor = hexLists[i];
 
             div.append(p);
             div.append(p2);
             containerWrapper.append(div);
 
             div.onclick = () => {
-                copyColor(hex);
-                document.querySelector('div.alert').style.right = "-5px";
+                copyColor(hexLists[i]);
+                p2.textContent = "Copied";
+                headerTitle.style.color = hexLists[i];
                 setTimeout(() => {
-                    document.querySelector('div.alert').style.right = "-205px";
+                    p2.textContent = hexLists[i];
                 },1000);
             }
         }
